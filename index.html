@@ -248,13 +248,28 @@
     try { localStorage.setItem(LS_WRONG, JSON.stringify(Array.from(wrongIds))); } catch (e) {}
   }
 
-  function loadAll() {
-    var raw = null;
-    try { raw = JSON.parse(localStorage.getItem(LS_BANK)); } catch (e) {}
-    if (!Array.isArray(raw) || !raw.length) raw = DEFAULT_BANK;
-    bank = normalizeBank(raw);
-    if (!bank.length) bank = normalizeBank(DEFAULT_BANK);
-    saveBank();
+  async function loadAll() {
+    var loaded = false;
+    try {
+      var resp = await fetch('./bank.json', { cache: 'no-cache' });
+      if (resp.ok) {
+        var data = await resp.json();
+        if (Array.isArray(data) && data.length) {
+          bank = normalizeBank(data);
+          saveBank();
+          loaded = true;
+        }
+      }
+    } catch (e) {}
+
+    if (!loaded) {
+      var raw = null;
+      try { raw = JSON.parse(localStorage.getItem(LS_BANK)); } catch (e) {}
+      if (!Array.isArray(raw) || !raw.length) raw = DEFAULT_BANK;
+      bank = normalizeBank(raw);
+      if (!bank.length) bank = normalizeBank(DEFAULT_BANK);
+      saveBank();
+    }
 
     try {
       var w = JSON.parse(localStorage.getItem(LS_WRONG));
@@ -524,8 +539,9 @@
     b.onclick = function () { start(b.dataset.mode); };
   });
 
-  loadAll();
-  start('all');
+  loadAll().then(function () {
+    start('all');
+  });
 })();
 </script>
 </body>
