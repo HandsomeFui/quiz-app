@@ -60,6 +60,13 @@
     </div>
     <div class="form-row">
       <label>时间限制</label>
+      <div class="form-row">
+      <label>选项顺序</label>
+      <label style="display:flex;align-items:center;gap:6px;color:#1f2328">
+        <input type="checkbox" id="examRandom" checked> 随机打乱选项顺序
+      </label>
+      </div>
+      
       <select id="examTime">
         <option value="15">15 分钟</option>
         <option value="30" selected>30 分钟</option>
@@ -77,6 +84,17 @@
 
 <!-- 考试成绩弹窗 -->
 <div class="modal" id="examResultModal">
+  <!-- 考试历史记录弹窗 -->
+<div class="modal" id="examHistoryModal">
+  <div class="modal-box">
+    <h2>考试记录</h2>
+    <p>最多保留最近 50 次考试记录。</p>
+    <div id="examHistoryBody"></div>
+    <div class="modal-actions">
+      <button id="btnCloseHistory">关闭</button>
+    </div>
+  </div>
+</div>
   <div class="modal-box">
     <h2>考试成绩</h2>
     <div id="examResultBody"></div>
