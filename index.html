@@ -85,6 +85,15 @@
 <!-- 考试成绩弹窗 -->
 <div class="modal" id="examResultModal">
   <!-- 考试历史记录弹窗 -->
+  <div class="modal-box">
+    <h2>考试成绩</h2>
+    <div id="examResultBody"></div>
+    <div class="modal-actions">
+      <button class="primary" id="btnExamRetry">再考一次</button>
+      <button id="btnExamClose">关闭</button>
+    </div>
+  </div>
+</div>
 <div class="modal" id="examHistoryModal">
   <div class="modal-box">
     <h2>考试记录</h2>
@@ -95,16 +104,6 @@
     </div>
   </div>
 </div>
-  <div class="modal-box">
-    <h2>考试成绩</h2>
-    <div id="examResultBody"></div>
-    <div class="modal-actions">
-      <button class="primary" id="btnExamRetry">再考一次</button>
-      <button id="btnExamClose">关闭</button>
-    </div>
-  </div>
-</div>
-
 <script src="app.js"></script>
 <script src="exam.js"></script>
 </body>
