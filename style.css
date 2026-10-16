@@ -82,3 +82,33 @@ textarea{width:100%;height:220px;font-family:ui-monospace,Menlo,Consolas,monospa
 .result-wrong-item .q{font-weight:600;margin-bottom:4px}
 .result-wrong-item .a{color:#16a34a}
 .result-wrong-item .y{color:#dc2626}
+/* 暂停遮罩 */
+.pause-overlay{position:fixed;inset:0;background:rgba(15,23,42,.75);display:flex;
+  align-items:center;justify-content:center;z-index:100;padding:16px}
+.pause-box{background:#fff;border-radius:14px;padding:28px 32px;text-align:center;max-width:360px}
+.pause-box h2{margin:0 0 8px;font-size:20px}
+.pause-box p{margin:0 0 16px;color:#656d76;font-size:14px}
+
+/* 历史记录表格 */
+.history-table{width:100%;border-collapse:collapse;font-size:13px;margin-top:8px}
+.history-table th,.history-table td{padding:8px 6px;text-align:center;border-bottom:1px solid #e4e7eb}
+.history-table th{background:#f8fafc;color:#475569;font-weight:600}
+.history-table tr:hover td{background:#f8fafc}
+
+/* 详细错题回顾 */
+.result-wrong-item{padding:14px;border:1px solid #e4e7eb;border-radius:10px;margin-bottom:12px;font-size:14px}
+.result-wrong-item .q{font-weight:600;margin-bottom:10px;white-space:pre-wrap;line-height:1.5}
+.opt-list{display:flex;flex-direction:column;gap:6px}
+.opt-line{display:flex;align-items:flex-start;gap:8px;padding:6px 10px;border-radius:6px;
+  background:#f8fafc;font-size:13px;line-height:1.5}
+.opt-line.is-answer{background:#f0fdf4;border:1px solid #86efac}
+.opt-line.is-wrong{background:#fef2f2;border:1px solid #fca5a5}
+.opt-label{flex:none;width:20px;height:20px;border-radius:50%;background:#e2e8f0;color:#475569;
+  display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:600}
+.opt-line.is-answer .opt-label{background:#16a34a;color:#fff}
+.opt-line.is-wrong .opt-label{background:#dc2626;color:#fff}
+.opt-text{flex:1;white-space:pre-wrap}
+.opt-mark{flex:none;font-size:12px;color:#475569;margin-left:6px;white-space:nowrap}
+.ans-note{margin-top:8px;color:#dc2626;font-size:13px}
+.exp-note{margin-top:10px;padding:10px 12px;background:#fffbeb;border-left:3px solid #f59e0b;
+  border-radius:6px;font-size:13px;color:#78350f;line-height:1.6;white-space:pre-wrap}
